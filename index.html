@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EOS</title>
+<title>Jenii</title>
 
 <style>
 *{
@@ -14,114 +14,165 @@
 }
 
 body{
-    background:#0f172a;
-    color:white;
+    background:#121212;
+    color:#ffffff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
 
 /* Tela de carregamento */
-#loader{
+.loader{
     position:fixed;
-    inset:0;
-    background:#0f172a;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#111;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    color:white;
     z-index:9999;
 }
 
 .spinner{
     width:60px;
     height:60px;
-    border:5px solid rgba(255,255,255,.2);
-    border-top:5px solid white;
+    border:6px solid rgba(255,255,255,0.2);
+    border-top:6px solid white;
     border-radius:50%;
-    animation:spin 1s linear infinite;
+    animation:girar 1s linear infinite;
 }
 
-@keyframes spin{
+@keyframes girar{
     to{
         transform:rotate(360deg);
     }
 }
 
-/* Barra de navegação */
+/* Navegação */
 nav{
-    width:100%;
-    background:#111827;
+    background:#222;
     padding:15px;
-    position:sticky;
-    top:0;
 }
 
 nav ul{
+    list-style:none;
     display:flex;
     justify-content:center;
-    gap:25px;
-    list-style:none;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
 nav a{
     color:white;
     text-decoration:none;
     font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    opacity:0.7;
 }
 
 /* Conteúdo */
 main{
-    min-height:calc(100vh - 120px);
+    flex:1;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:20px;
+    padding:40px 20px;
 }
 
-h1{
+.content{
+    width:100%;
+    max-width:850px;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    padding:35px;
+}
+
+.content h1{
+    text-align:center;
+    margin-bottom:30px;
     font-size:clamp(2rem,5vw,4rem);
+}
+
+.content p{
+    text-align:left;
+    line-height:1.9;
+    margin-bottom:20px;
+    font-size:1.1rem;
 }
 
 /* Rodapé */
 footer{
-    background:#111827;
+    background:#222;
+    color:white;
     text-align:center;
-    padding:20px;
+    padding:15px;
+}
+
+@media (max-width:768px){
+
+    .content{
+        padding:25px;
+    }
+
+    .content p{
+        font-size:1rem;
+    }
+
+    nav ul{
+        gap:15px;
+    }
 }
 </style>
 </head>
 <body>
 
-<div id="loader">
+<!-- Tela de carregamento -->
+<div class="loader" id="loader">
     <div class="spinner"></div>
     <p style="margin-top:15px;">Carregando...</p>
 </div>
 
+<!-- Navegação -->
 <nav>
     <ul>
         <li><a href="#">Início</a></li>
-        <li><a href="#">Projetos</a></li>
-  
+        <li><a href="#">projetos</a></li>
     </ul>
 </nav>
 
+<!-- Conteúdo -->
 <main>
-    <h1>CALMA</h1>
-    <h1>Ia ser pro seu aniversário mas achei legal fazer antes, vai sofrer atualizações até ficar como eu quero MAS</h1>
-    <h1>Eu estar adiantando esse presente é pra eu te dizer que esse mês que estivemos juntas todos os dias ficou guardado comigo, principalmente por que, como sempre digo, triste é quem não é presente na sua vida. Obrigada por ser tão parceira, divertida é tão amiga, esse foi o mês que eu mais senti que te amava e pude demonstrar isso do meu jeito. Obviamente vou sentir falta de te ver todos os dias, mas vou sempre estar muito feliz sabendo que tenho uma amiga como você</h1>
+    <div class="content">
 
-   <h1>vai tomando ta</h1>
+        <h1>Jenii</h1>
+
+        <p>CALMA</p>
+    <p>Ia ser pro seu aniversário mas achei legal fazer antes, vai sofrer atualizações até ficar como eu quero MAS</p>
+    <p>Eu estar adiantando esse presente é pra eu te dizer que esse mês que estivemos juntas todos os dias ficou guardado comigo, principalmente por que, como sempre digo, triste é quem não é presente na sua vida. Obrigada por ser tão parceira, divertida é tão amiga, esse foi o mês que eu mais senti que te amava e pude demonstrar isso do meu jeito. Obviamente vou sentir falta de te ver todos os dias, mas vou sempre estar muito feliz sabendo que tenho uma amiga como você</p>
+
+   <p>vai tomando ta</p>
+
+    </div>
 </main>
 
+<!-- Rodapé -->
 <footer>
     Criado por eos
 </footer>
 
 <script>
-window.onload = () => {
+window.addEventListener("load", () => {
     setTimeout(() => {
         document.getElementById("loader").style.display = "none";
     }, 1500);
-};
+});
 </script>
 
 </body>
